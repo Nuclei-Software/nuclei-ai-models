@@ -1,0 +1,78 @@
+NUCLEI_SDK_ROOT := $(AI_MODELS_ROOT)/downloads/nuclei-sdk
+
+COMMON ?= $(AI_MODELS_ROOT)/common
+
+MIDDLEWARE_TFLM := ${NUCLEI_SDK_ROOT}/Components/tflm
+
+TFLM_THIRD_PARTY := $(MIDDLEWARE_TFLM)/third_party
+
+INCDIRS += $(MIDDLEWARE_TFLM) \
+  $(TFLM_THIRD_PARTY)/gemmlowp \
+  $(TFLM_THIRD_PARTY)/flatbuffers/include \
+  $(TFLM_THIRD_PARTY)/ruy \
+  $(TFLM_THIRD_PARTY)/kissfft
+
+ifeq ($(REBUILD_TFLM), 1)
+MIDDLEWARE := tflm
+else
+PREBUILD_LIB := n300fd nx900fd
+ifeq ($(filter $(CORE)$(ARCH_EXT),$(PREBUILD_LIB)),)
+$(error Error: CORE_ABI must be one of '$(PREBUILD_LIB)', but CORE_ABI is '$(CORE)$(ARCH_EXT)', otherwise you should set REBUILD_TFLM = 1)
+endif
+
+LIBDIRS += ${COMMON}/prebuild_libtflite/
+LDFLAGS += -ltensorflow-microlite_$(CORE)
+
+ADDITIONAL_DEFINES := \
+  -DNMSIS_NN \
+  -DTF_LITE_USE_GLOBAL_MIN \
+  -DTF_LITE_USE_GLOBAL_MAX \
+  -DTF_LITE_MCU_DEBUG_LOG \
+  -DTF_LITE_USE_GLOBAL_CMATH_FUNCTIONS \
+  -DTF_LITE_STATIC_MEMORY \
+  -DTF_LITE_DISABLE_X86_NEON \
+  -DKERNELS_OPTIMIZED_FOR_SPEED \
+  -D_DEFAULT_SOURCE
+
+CC_WARNINGS := \
+  -Wsign-compare \
+  -Wdouble-promotion \
+  -Wshadow \
+  -Wunused-variable \
+  -Wno-unused-function \
+  -Wswitch \
+  -Wvla \
+  -Wall \
+  -Wextra \
+  -Wmissing-field-initializers \
+  -Wstrict-aliasing \
+  -Wno-unused-parameter
+
+TFLM_COMMON_FLAGS := \
+  -mexplicit-relocs \
+  -fno-builtin-printf \
+  -fno-exceptions \
+  -fno-unwind-tables \
+  -funsigned-char \
+  -Wno-write-strings \
+  -fno-delete-null-pointer-checks \
+  -fomit-frame-pointer \
+  $(ADDITIONAL_DEFINES) \
+  $(CC_WARNINGS)
+
+CXXFLAGS += $(TFLM_COMMON_FLAGS) \
+  -std=gnu++11 \
+  -fno-rtti \
+  -fno-threadsafe-statics \
+  -fno-use-cxa-atexit \
+  -fpermissive
+
+CFLAGS += $(TFLM_COMMON_FLAGS)
+
+LDFLAGS += \
+  -lstdc++ \
+  -lm
+
+endif
+
+include $(NUCLEI_SDK_ROOT)/Build/Makefile.base

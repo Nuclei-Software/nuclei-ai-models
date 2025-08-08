@@ -56,3 +56,4 @@ fpga_runner.yaml
 *.gcno
 *.gcov
 
+downloads/
