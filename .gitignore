@@ -57,3 +57,7 @@ fpga_runner.yaml
 *.gcov
 
 downloads/
+modelzoo/audio/speech-recognition/src/wav2letter_int8.cc
+modelzoo/image_classification/efficientnetv2/src/efficientnet_v2B0_224_int8.cc
+modelzoo/image_classification/resnet50v2/src/resnet50_v2_224_int8.cc
+modelzoo/object_detection/tiny_yolo_v2/src/tiny_yolo_v2_224_int8.cc

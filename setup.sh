@@ -185,6 +185,8 @@ download_third_party
 
 download_check
 
+./prepare_models.sh
+
 GCC_PATH=$RLSROOT/downloads/nuclei_studio/NucleiStudio/toolchain/gcc/bin
 QEMU_PATH=$RLSROOT/downloads/nuclei_studio/NucleiStudio/toolchain/qemu/bin
 OPENOCD_PATH=$RLSROOT/downloads/nuclei_studio/NucleiStudio/toolchain/openocd/bin
