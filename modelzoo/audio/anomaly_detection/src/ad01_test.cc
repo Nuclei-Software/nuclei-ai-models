@@ -21,7 +21,7 @@ limitations under the License.
 #include "tensorflow/lite/micro/system_setup.h"
 #include "tensorflow/lite/schema/schema_generated.h"
 
-#include "ad01_int8.h"
+#include "ad01_int8_tflite.h"
 
 float compute_y_pred(const float* data_fp, const float* out, int rows, int cols) {
     float sum_errors = 0.0f;

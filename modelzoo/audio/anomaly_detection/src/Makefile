@@ -2,6 +2,8 @@ TARGET = anomaly_detection
 
 AI_MODELS_ROOT := ../../../../
 
+$(warning "Please execute prepare.sh if missing files!")
+
 # set REBUILD_TFLM = 0 means use tflm static library, now just support n300fd and nx900fd.a
 # set REBUILD_TFLM = 1 means compile tflm by source which will cost a lot of time
 REBUILD_TFLM ?= 0
