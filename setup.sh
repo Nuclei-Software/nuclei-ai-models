@@ -185,8 +185,6 @@ download_third_party
 
 download_check
 
-./prepare_models.sh
-
 GCC_PATH=$RLSROOT/downloads/nuclei_studio/NucleiStudio/toolchain/gcc/bin
 QEMU_PATH=$RLSROOT/downloads/nuclei_studio/NucleiStudio/toolchain/qemu/bin
 OPENOCD_PATH=$RLSROOT/downloads/nuclei_studio/NucleiStudio/toolchain/openocd/bin
@@ -194,6 +192,6 @@ OPENOCD_PATH=$RLSROOT/downloads/nuclei_studio/NucleiStudio/toolchain/openocd/bin
 NEWPATH=${GCC_PATH}:${QEMU_PATH}:${OPENOCD_PATH}:${PATH}
 export PATH=$(var_dupclean $NEWPATH)
 
-echo -e "PATH is:" ${PATH}
+echo -e "\033[1;32mPATH is:\033[0m" ${PATH}
 
 
