@@ -21,7 +21,7 @@ limitations under the License.
 #include "tensorflow/lite/micro/system_setup.h"
 #include "tensorflow/lite/schema/schema_generated.h"
 
-#include "wav2letter_int8.h"
+#include "wav2letter_int8_tflite.h"
 
 namespace wav2letter {
   const tflite::Model* model = nullptr;
