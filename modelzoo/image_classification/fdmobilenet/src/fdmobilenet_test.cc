@@ -22,7 +22,7 @@ limitations under the License.
 #include "tensorflow/lite/schema/schema_generated.h"
 
 #include "image_provider.h"
-#include "fdmobilenet_0.25_128_tfs_int8.h"
+#include "fdmobilenet_0_25_128_tfs_int8_tflite.h"
 
 namespace fdmobilenet {
   const tflite::Model* model = nullptr;

@@ -22,7 +22,7 @@ limitations under the License.
 #include "tensorflow/lite/schema/schema_generated.h"
 
 #include "image_provider.h"
-#include "mnist_int8.h"
+#include "mnist_int8_tflite.h"
 
 namespace mnist {
   const tflite::Model* model = nullptr;

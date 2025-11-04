@@ -22,7 +22,7 @@ limitations under the License.
 #include "tensorflow/lite/schema/schema_generated.h"
 
 #include "image_provider.h"
-#include "squeezenetv1.1_128_tfs_int8.h"
+#include "squeezenetv1_1_128_tfs_int8_tflite.h"
 
 namespace squeezenetv1_1 {
   const tflite::Model* model = nullptr;

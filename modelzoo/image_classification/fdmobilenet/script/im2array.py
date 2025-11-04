@@ -33,7 +33,7 @@ def im2array(data, c_file):
 
 if __name__ == "__main__":
     # np.set_printoptions(threshold=sys.maxsize)
-    img = "../../../public_dataset/flower_photos/roses/568715474_bdb64ccc32.jpg"
+    img = "../../../../public_dataset/flower_photos/roses/568715474_bdb64ccc32.jpg"
 
     target_h = 128
     target_w = 128

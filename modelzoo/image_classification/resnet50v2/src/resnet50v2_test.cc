@@ -22,7 +22,7 @@ limitations under the License.
 #include "tensorflow/lite/schema/schema_generated.h"
 
 #include "image_provider.h"
-#include "resnet50_v2_224_int8.h"
+#include "resnet50_v2_224_int8_tflite.h"
 
 namespace resnet50 {
   const tflite::Model* model = nullptr;

@@ -22,7 +22,7 @@ limitations under the License.
 #include "tensorflow/lite/schema/schema_generated.h"
 
 #include "image_provider.h"
-#include "efficientnet_v2B0_224_int8.h"
+#include "efficientnet_v2B0_224_int8_tflite.h"
 
 namespace efficientnetv2 {
   const tflite::Model* model = nullptr;
