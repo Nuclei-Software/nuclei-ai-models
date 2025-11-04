@@ -21,7 +21,7 @@ limitations under the License.
 #include "tensorflow/lite/micro/system_setup.h"
 #include "tensorflow/lite/schema/schema_generated.h"
 
-#include "microspeech_lstm_int8.h"
+#include "microspeech_lstm_int8_tflite.h"
 
 namespace lstm {
   const tflite::Model* model = nullptr;
