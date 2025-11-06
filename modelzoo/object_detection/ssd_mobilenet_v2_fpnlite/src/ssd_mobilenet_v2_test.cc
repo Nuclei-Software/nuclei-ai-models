@@ -22,7 +22,7 @@ limitations under the License.
 #include "tensorflow/lite/schema/schema_generated.h"
 
 #include "image_provider.h"
-#include "ssd_mobilenet_v2_fpnlite_035_224_int8.h"
+#include "ssd_mobilenet_v2_fpnlite_035_224_int8_tflite.h"
 
 namespace yolov8n {
   const tflite::Model* model = nullptr;

@@ -21,7 +21,7 @@ limitations under the License.
 #include "tensorflow/lite/micro/micro_mutable_op_resolver.h"
 #include "tensorflow/lite/micro/system_setup.h"
 #include "tensorflow/lite/schema/schema_generated.h"
-#include "yolo_lc_v1_224_int8.h"
+#include "yolo_lc_v1_224_int8_tflite.h"
 #include "image_provider.h"
 
 namespace tinyYoloV2 {

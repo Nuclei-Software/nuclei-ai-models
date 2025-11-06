@@ -22,7 +22,7 @@ limitations under the License.
 #include "tensorflow/lite/schema/schema_generated.h"
 
 #include "image_provider.h"
-#include "yolov8n_256_quant_pc_uf_od_coco-person.h"
+#include "yolov8n_256_quant_pc_uf_od_coco_person_tflite.h"
 
 namespace yolov8n {
   const tflite::Model* model = nullptr;
