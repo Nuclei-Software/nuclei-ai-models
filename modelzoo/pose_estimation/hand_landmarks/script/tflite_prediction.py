@@ -235,7 +235,7 @@ class YOLOv8TFLite:
                     if float(pp[k])>threshSkeleton and float(pp[l])>threshSkeleton: 
                         cv2.line(image,(int(xx[k]*width),int(yy[k]*height)),(int(xx[l]*width),int(yy[l]*height)),(0, 255, 0))
 
-            btext = '{}'.format(['left','right'][htype[ids]>0.5])
+            btext = '{}'.format(['left','right'][bool(htype[ids]>0.5)])
             cv2.rectangle(image,(x1,y1), (x2, y2),(255, 0, 255),1)
             cv2.putText(image, btext, (x1,y1-2), cv2.FONT_HERSHEY_SIMPLEX, 0.5, (255, 0, 255), bbox_thick//2, lineType=cv2.LINE_AA)
 
