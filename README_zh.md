@@ -51,6 +51,7 @@ $ source setup.sh
 
 ~~~sh
 $ cd modelzoo/image_classification/mnist/src
+$ bash prepare.sh
 $ make SOC=evalsoc CORE=n300fd clean
 $ make SOC=evalsoc CORE=n300fd run_qemu
 ~~~
