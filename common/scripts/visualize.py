@@ -534,6 +534,8 @@ def create_html(tflite_input, input_is_filepath=True):  # pylint: disable=invali
 
 
 def main(argv):
+  print(argv)
+  print(len(argv))
   try:
     tflite_input = argv[1]
     html_output = argv[2]

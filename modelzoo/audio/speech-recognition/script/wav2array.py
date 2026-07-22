@@ -71,7 +71,7 @@ def file_to_vector_array(model_path, wavfile):
 def wav2array(data, c_file):
     test = list(data.flatten())
     with open (c_file, 'w') as f:
-        header_line = "signed char wavArray[" + str(len(test)) + "]" + " {\n"
+        header_line = "signed char wavArray[" + str(len(test)) + "]" + " = {\n"
         f.write(header_line)
 
         for i in range(0, len(test), 12):

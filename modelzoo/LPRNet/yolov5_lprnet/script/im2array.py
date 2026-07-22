@@ -29,7 +29,7 @@ def letterbox(img: np.ndarray, new_shape: Tuple = (640, 640)) -> Tuple[np.ndarra
 def im2array(data, c_file):
     test = list(data.flatten())
     with open (c_file, 'w') as f:
-        header_line = "unsigned char imgArray[" + str(len(test)) + "]" + " {\n"
+        header_line = "unsigned char imgArray[" + str(len(test)) + "]" + " = {\n"
         f.write(header_line)
 
         for i in range(0, len(test), 12):

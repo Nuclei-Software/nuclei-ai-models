@@ -1,4 +1,4 @@
-TARGET = wav2letter_lstm
+TARGET = wav2letter_int8
 
 AI_MODELS_ROOT := ../../../../
 
