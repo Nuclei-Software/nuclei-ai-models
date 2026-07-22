@@ -204,6 +204,34 @@ class YOLOv8TFLite:
         # Adjust coordinates based on padding and scale to original image size
 
         poses,norm_poses,htype,hprob = hand_landmarks_postprocess(outputs)
+
+        print("\n===== Python Raw Outputs (for debug comparison) =====")
+        det_raw = outputs[3]
+        ndet_raw = outputs[1]
+        print("det (outputs[3]) shape:", det_raw.shape, ":", det_raw.dtype)
+        flat_det = det_raw[0].numpy().flatten() if hasattr(det_raw[0], 'numpy') else np.array(det_raw[0]).flatten()
+        for i in range(0, flat_det.shape[0], 6):
+            end = min(i+6, flat_det.shape[0])
+            vals = " ".join(f"{flat_det[j]:.6f}" for j in range(i, end))
+            print(f"  {vals}")
+        print("norm_det (outputs[1]) shape:", ndet_raw.shape, ":", ndet_raw.dtype)
+        flat_ndet = ndet_raw[0].numpy().flatten() if hasattr(ndet_raw[0], 'numpy') else np.array(ndet_raw[0]).flatten()
+        for i in range(0, flat_ndet.shape[0], 6):
+            end = min(i+6, flat_ndet.shape[0])
+            vals = " ".join(f"{flat_ndet[j]:.6f}" for j in range(i, end))
+            print(f"  {vals}")
+        print("=================================================\n")
+
+        # === DEBUG PRINT: match C++ format for comparison ===
+        print("\n===== Python Post-process Results (postprocessed norm_det) =====")
+        print(f"Hand presence probability: {hprob[0]:.4f}")
+        print(f"Hand type: {'right' if htype[0] > 0.5 else 'left'} ({htype[0]:.4f})")
+        print("Hand landmarks (21 keypoints in image space):")
+        for i in range(21):
+            print(f"  {i:2d}: ({norm_poses[0,i*3+0]:.4f}, {norm_poses[0,i*3+1]:.4f}, {norm_poses[0,i*3+2]:.4f})")
+        print("========================================\n")
+
+
         kpts_nbr = 17
         try:
             skeleton_connections = skeleton_connections_dict[kpts_nbr]
