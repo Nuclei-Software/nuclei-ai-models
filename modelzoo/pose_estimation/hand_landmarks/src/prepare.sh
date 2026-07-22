@@ -1,6 +1,6 @@
 #!/bin/bash
 
-model_file="../pretrained_models/mnist_int8.tflite"
+model_file="../pretrained_models/custom_dataset_hands_21kpts/hand_landmarks_full_224_int8_pc.tflite"
 output_header="$(basename "$model_file" | tr './-' '_' | sed 's/\..*//')"
 
 

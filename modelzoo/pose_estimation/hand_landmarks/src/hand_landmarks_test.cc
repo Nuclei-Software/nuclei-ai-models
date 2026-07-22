@@ -22,7 +22,7 @@ limitations under the License.
 #include "tensorflow/lite/schema/schema_generated.h"
 
 #include "image_provider.h"
-#include "hand_landmark_int8_tflite.h"
+#include "hand_landmarks_full_224_int8_pc_tflite.h"
 
 namespace hand_landmark {
   const tflite::Model* model = nullptr;
@@ -38,7 +38,7 @@ void setup() {
   tflite::InitializeTarget();
   // Map the model into a usable data structure. This doesn't involve any
   // copying or parsing, it's a very lightweight operation.
-  hand_landmark::model = tflite::GetModel(___pretrained_models_hand_landmark_int8_tflite);
+  hand_landmark::model = tflite::GetModel(___pretrained_models_custom_dataset_hands_21kpts_hand_landmarks_full_224_int8_pc_tflite);
   if (hand_landmark::model->version() != TFLITE_SCHEMA_VERSION) {
     MicroPrintf(
         "Model provided is schema version %d not equal "

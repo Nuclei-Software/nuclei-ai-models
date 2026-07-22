@@ -41,5 +41,5 @@ if __name__ == "__main__":
     target_w = 224
     x_test = load_and_resize_img(img, target_h, target_w)
     c_file = "test_image_provider.cc"
-    #im2array(x_test, c_file)
+    im2array(x_test, c_file)
 
